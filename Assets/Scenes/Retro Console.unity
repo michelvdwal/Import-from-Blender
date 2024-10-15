@@ -287,7 +287,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78870fc9364ac44de993c858cbe2e4c9, type: 2}
+  - {fileID: 2100000, guid: 4281ee12c6ced4f22926d636b42f6911, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -553,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 576188155}
   m_Layer: 0
-  m_Name: retro console
+  m_Name: retro console edited shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

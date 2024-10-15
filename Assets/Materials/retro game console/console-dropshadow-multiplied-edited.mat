@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: console-dropshadow-multiplied
-  m_Shader: {fileID: 4800000, guid: c36494b3e76a74d988cea1d02daa7916, type: 3}
+  m_Name: console-dropshadow-multiplied-edited
+  m_Shader: {fileID: 4800000, guid: 82073e4adc3644e8aa15d879608a3a6f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

@@ -31,6 +31,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: d029a37669f104163b78f080b1c3fb79, type: 3}
         m_Scale: {x: 17.98, y: 11.37}
         m_Offset: {x: -7.69, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BlurAmount: 20.4

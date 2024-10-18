@@ -1,8 +1,9 @@
-Shader "Custom/URPGrayscaleMultiplyBlend"
+Shader "Custom/GrayscaleMultiplyBlend"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}  // Your grayscale texture
+        _MixColor ("Mix Color", Color) = (1, 1, 1, 1)  // Control the color to mix with the gray pixels
     }
     SubShader
     {
@@ -34,6 +35,7 @@ Shader "Custom/URPGrayscaleMultiplyBlend"
             sampler2D _MainTex;
             sampler2D _CameraOpaqueTexture;
             float4 _MainTex_ST;
+            float4 _MixColor;        // Variable for the mix color
 
             v2f vert (appdata v)
             {
@@ -57,17 +59,22 @@ Shader "Custom/URPGrayscaleMultiplyBlend"
                 float2 screenUV = i.screenPos.xy / i.screenPos.w;  // Convert to screen space UV
                 float4 backgroundColor = tex2D(_CameraOpaqueTexture, screenUV);
 
-                // Use grayscale value to blend between the texture and background
-                // Invert grayscale value so that white becomes fully transparent and black is opaque
-                float alpha = 1.0 - grayscale;
+                // Use grayscale value to calculate the alpha
+                float alpha = 1.0 - grayscale; // This controls the transparency based on grayscale
 
-                // Final color is a blend between texture and background, modulated by alpha
-                float4 finalColor = lerp(backgroundColor, texColor, alpha);
+                // Create a new color based on grayscale and mix color
+                float4 mixedColor;
 
-                // Set the alpha channel to control transparency based on the grayscale
-                finalColor.a = alpha;
+                // Calculate the darkened color by multiplying the background with the grayscale value
+                float4 darkenedColor = backgroundColor * grayscale;
 
-                return finalColor;
+                // If the grayscale value is 0 (black), mix with the mix color instead of solid black
+                mixedColor = darkenedColor * (1.0 - alpha) + (_MixColor * alpha);
+
+                // Set the alpha channel based on the grayscale value
+                mixedColor.a = alpha; // Set alpha based on the grayscale value
+
+                return mixedColor;
             }
             ENDHLSL
         }

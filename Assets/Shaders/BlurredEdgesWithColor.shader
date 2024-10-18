@@ -1,4 +1,4 @@
-Shader "Custom/BlurredEdges_Unlit"
+Shader "Custom/BlurredEdgesWithColor"
 {
     Properties
     {
